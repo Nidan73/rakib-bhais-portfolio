@@ -32,7 +32,7 @@ Full-stack rewrite planned: TypeScript + Next.js (App Router) + Tailwind CSS + s
 ## Current state (updated after every feature)
 
 **Done:**
-- Next.js 15 + React 19 + TypeScript + Tailwind v4 scaffolded manually (no create-next-app). App Router, files under `src/`.
+- Next.js 16 (Turbopack default) + React 19.2 + TypeScript 7 (native) + Tailwind 4.3, all at latest majors as of 2026-08-26. App Router, files under `src/`.
 - Full UI ported from `rakib-portfolio (1).html`. Original CSS copied verbatim into `src/app/globals.css` - do NOT rewrite it into Tailwind classes; that is how pixel-parity is guaranteed. Markup in `src/app/page.tsx` uses the same class names.
 - All interactivity ported verbatim in `src/components/SiteScripts.tsx` (single client component running on mount via getElementById/querySelector): overlays/modals, story + post views, journal likes/comments/compose/edit/delete with image drop, admin auth (Google + passphrase), stamp system + coach mark, contact form validation + mailto fallback, scroll reveal, nav spy.
 - Client islands with refs/state (do not duplicate their work in SiteScripts): `SplitFlapBoard`, `Marquee`, `DhakaClock`, `Countdown`, `Quotes`.
@@ -47,3 +47,4 @@ Full-stack rewrite planned: TypeScript + Next.js (App Router) + Tailwind CSS + s
 ## Session log
 
 - 2026-08-26: Scaffolded Next.js manually (dirname has spaces so create-next-app was unusable); committed original HTML for reference. Ported UI shell + animated hero elements (`69b5fbd`), then all interactivity via SiteScripts (`66acbc5`). Verified by `tsc --noEmit`, `next build`, and diffing prerendered HTML against source IDs/classes.
+- 2026-08-26: Upgraded Next 15→16.3.3, TS 5→7.0.2, React→19.2.8, Tailwind→4.3.3 (`e727cce`). No code changes needed; had to `rm -rf .next` because the v15 build cache broke v16 builds with a misleading `_not-found` error - remember this on future major bumps.
