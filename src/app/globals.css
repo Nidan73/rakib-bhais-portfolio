@@ -294,6 +294,12 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0}
    ============================================================ */
 .form{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 @media(max-width:700px){.form{grid-template-columns:1fr}}
+/* mobile fix: intrinsic input width (size=20) forced grid tracks past the
+   viewport; constrain fields to the column on small screens only */
+@media(max-width:700px){
+  .field{min-width:0}
+  .field input,.field select,.field textarea{width:100%}
+}
 .field{display:flex;flex-direction:column;gap:.35rem}
 .field.full{grid-column:1/-1}
 .field label{font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;
