@@ -3,6 +3,7 @@ import Marquee from "@/components/Marquee";
 import DhakaClock from "@/components/DhakaClock";
 import Countdown from "@/components/Countdown";
 import Quotes from "@/components/Quotes";
+import SiteScripts from "@/components/SiteScripts";
 import { CONFIG, STAMPS, initialGot, fdate } from "@/lib/config";
 
 function StampRows() {
@@ -383,6 +384,7 @@ export default function Page() {
           </div></div></div>
 
       <div className="toast" id="toast"></div>
+      <SiteScripts />
     </>
   );
 }
